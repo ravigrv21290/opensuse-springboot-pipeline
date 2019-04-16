@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.javainuse.test.SpringBootTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.319 sec - in com.javainuse.test.SpringBootTests
