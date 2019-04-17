@@ -7,7 +7,7 @@ pipeline {
 		
 			steps {
 			
-				git 'https://github.com/ravigrv21290/SpringBootJenkinsPOC.git'
+				git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'
 				
 			}          
 
@@ -21,7 +21,7 @@ pipeline {
 
                 withMaven(maven : 'apache-maven-3.6.0') {
 
-                    bat 'mvn install'               
+                    sh 'mvn install'               
 
                 }
 
@@ -39,7 +39,7 @@ pipeline {
 
                 withMaven(maven : 'apache-maven-3.6.0') {
 
-                    bat 'mvn test'
+                   sh 'mvn test'
 
                 }
 
@@ -57,7 +57,7 @@ pipeline {
 
                 withMaven(maven : 'apache-maven-3.6.0') {
 
-                    bat 'mvn package'
+                    sh 'mvn package'
 
                 }
 
