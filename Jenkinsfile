@@ -19,7 +19,7 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                   def mvn_Home = tool 'apache-maven'
+                   def mvn_Home = 'apache-maven'
                  
 		   sh "'${mvn_Home}/bin/mvn' clean install"               
             }
