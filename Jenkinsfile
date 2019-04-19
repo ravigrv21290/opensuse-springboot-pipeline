@@ -1,16 +1,16 @@
 pipeline {
  agent any 
- tools {
-    maven 'apache-maven'
-  }
+
  environment {
     EMAIL_RECIPIENTS = 'rvgrv212@gmail.com'
  }
+
     stages {
 		
 		stage ('Checkout') {
 		
 			steps {
+				echo 'Pulling...' + env.BRANCH_NAME
 				git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'
 				
 			}          
@@ -19,8 +19,9 @@ pipeline {
         stage ('Compile Stage') {
 
             steps {
-                   echo 'Pulling...' + env.BRANCH_NAME
-		   sh 'mvn install'               
+                   def mvn_Home = tool 'apache-maven'
+                 
+		   sh "'${mvn-Home}/bin/mvn' clean install"               
             }
         }
 
