@@ -21,7 +21,7 @@ pipeline {
             steps {
                    def mvn_Home = tool 'apache-maven'
                  
-		   sh "'${mvn-Home}/bin/mvn' clean install"               
+		   sh "'${mvn_Home}/bin/mvn' clean install"               
             }
         }
 
