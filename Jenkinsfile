@@ -17,8 +17,7 @@ pipeline {
 
             steps {
                    echo 'Pulling...' + env.BRANCH_NAME
-		   def mvnHome = tool 'apache-maven'
-                   sh 'mvn install'               
+		   sh 'mvn install'               
             }
         }
 
