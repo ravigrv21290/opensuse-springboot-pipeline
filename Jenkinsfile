@@ -1,5 +1,8 @@
 pipeline {
  agent any 
+ tools {
+    maven 'apache-maven'
+  }
  environment {
     EMAIL_RECIPIENTS = 'rvgrv212@gmail.com'
  }
