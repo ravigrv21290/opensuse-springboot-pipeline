@@ -17,7 +17,7 @@
 		<version>2.1.4.RELEASE</version>
                 <relativePath>../pom.xml</relativePath>
 	</parent>
-
+        <!--
 	<repositories>
    	 	 <repository>
        			 <id>central</id>
@@ -44,7 +44,7 @@
        			 <id>spring-milestones</id>
            		 <url>http://repo.spring.io/milestone</url>
       		 </repository>
-	</repositories>
+	</repositories>    -->
 
 	<pluginRepositories>
    		 <pluginRepository>
