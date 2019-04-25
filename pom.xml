@@ -18,6 +18,19 @@
                 <relativePath>../pom.xml</relativePath>
 	</parent>
 
+	<repositories>
+ 		 <repository> 
+     			 <id>artifactory-repo</id> 
+     			 <url>http://localhost:8081/artifactory/libs-release</url> 
+  			 <releases> 
+   				 <enabled>true</enabled> 
+  			 </releases> 
+  			 <snapshots> 
+    				 <enabled>true</enabled> 
+  			 </snapshots> 
+ 		 </repository>
+	</repositories>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
