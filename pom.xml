@@ -15,8 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.1.RELEASE</version>
-                <relativePath>/root/Music/opensuse-springboot-pipeline</relativePath>
-		<packaging>pom</packaging> 
+                <relativePath>/root/Music/opensuse-springboot-pipeline/pom.xml</relativePath>
 	</parent>
 
 	<properties>
