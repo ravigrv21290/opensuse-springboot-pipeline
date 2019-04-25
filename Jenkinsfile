@@ -11,8 +11,7 @@ pipeline {
 		
 			steps {
 				echo 'Pulling...' + env.BRANCH_NAME
-				git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'
-				
+				git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'	
 			}          
         }
 		
