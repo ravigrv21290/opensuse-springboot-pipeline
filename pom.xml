@@ -19,20 +19,20 @@
 	</parent>
 
 	<repositories>
-   	 <!--	 <repository>
+   	 	 <repository>
        			 <id>central</id>
-       			 <url>http://localhost:8081/artifactory/libs-release</url>
+       			 <url>http://10.118.40.166:8081/artifactory/libs-release</url>
        			 <snapshots>
            			 <enabled>true</enabled>
        			 </snapshots>
    		 </repository>
    		 <repository>
        			 <id>snapshots</id>
-       			 <url>http://localhost:8081/artifactory/libs-snapshot</url>
+       			 <url>http://10.118.40.166:8081/artifactory/libs-snapshot</url>
        			 <releases>
            			 <enabled>true</enabled>
        			 </releases>
-   		 </repository>     -->
+   		 </repository>
 		 <repository>
            		 <id>spring-snapshots</id>
            		 <url>http://repo.spring.io/snapshot</url>
