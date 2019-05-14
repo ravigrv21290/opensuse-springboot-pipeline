@@ -18,7 +18,7 @@ pipeline {
 	stage ('testfile') {
 
             steps {
-                   touch demo.txt
+                   echo 'This is a test' > sample.txt
             }
         }  
 		
