@@ -18,7 +18,8 @@ Apipeline {
 	stage ('Create_File') {
 
             steps {
-		echo "File created"+ touch demo.txt
+		touch sample.txt
+		echo "File created"
             }
         }
 		
