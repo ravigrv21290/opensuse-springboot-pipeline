@@ -1,4 +1,4 @@
-Apipeline {
+pipeline {
  agent any 
 
  environment {
@@ -7,14 +7,20 @@ Apipeline {
 
     stages {
 		
-		stage ('Checkout') {
+	stage ('Checkout') {
 		
-			steps {
-				echo 'Pulling...' + env.BRANCH_NAME
-				git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'	
-			}          
+		steps {
+			echo 'Pulling...' + env.BRANCH_NAME
+			git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'	
+		}          
         }
-	    
+
+	stage ('testfile') {
+
+            steps {
+                   touch demo.txt
+            }
+        }  
 		
         stage ('Compile Stage') {
 
