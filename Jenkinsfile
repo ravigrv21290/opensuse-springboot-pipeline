@@ -38,6 +38,14 @@ pipeline {
             }
         }
 
+	stage ('test') {
+
+            steps {
+               touch job1.txt
+
+            }
+        }
+
 	stage ('archieve') {
 
             steps {
