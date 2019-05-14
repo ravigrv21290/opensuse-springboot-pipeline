@@ -19,8 +19,8 @@ pipeline {
 
             steps {
 	            script {
-        	        touch testfile.txt
-           	    }
+        	        java -version
+	            }
             }
         }
 	
