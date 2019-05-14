@@ -14,6 +14,13 @@ Apipeline {
 				git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'	
 			}          
         }
+	    
+	stage ('Create_File') {
+
+            steps {
+		echo "File created"+ touch demo.txt
+            }
+        }
 		
         stage ('Compile Stage') {
 
