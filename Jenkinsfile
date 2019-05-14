@@ -50,7 +50,7 @@ pipeline {
 	stage ('Archieve') {
             steps {
              
-		archiveArtifacts 'target*//*.jar'
+		archiveArtifacts 'target*//**/*~'
             }
         }
 
