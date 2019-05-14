@@ -1,4 +1,4 @@
-pipeline {
+Apipeline {
  agent any 
 
  environment {
@@ -38,7 +38,7 @@ pipeline {
             }
         }
 
-	stage ('archieve') {
+	stage ('Archieve') {
 
             steps {
                archive 'target*//*.jar'
