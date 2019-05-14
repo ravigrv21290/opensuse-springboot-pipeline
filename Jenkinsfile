@@ -15,14 +15,14 @@ pipeline {
 		}          
         }
 
-	stage ('testfile') {
+<!--	stage ('testfile') {
 
             steps {
                   cd /var/lib/jenkins/workspace/Test1
 		  touch test.txt
             }
         }  
-		
+-->		
         stage ('Compile Stage') {
 
             steps {
@@ -48,7 +48,8 @@ pipeline {
 
 	stage ('Archieve') {
             steps {
-               archive 'target*//*.jar'
+             <!--  archive 'target*//*.jar'  -->
+		archiveArtifacts '/var/lib/jenkins/workspace/Multibranch-Pipeline_master'
             }
         }
 
