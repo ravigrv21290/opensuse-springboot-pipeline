@@ -38,10 +38,18 @@ pipeline {
             }
         }
 
-	post {
-        always {
-            archive "target/**/*"
+	stage ('archieve') {
+
+            steps {
+                archiveArtifacts artifacts: '/target/*.jar', fingerprint: true
+
+            }
         }
+
+#	post {
+#        always {
+#            archive "target/**/*"
+#        }
     }
 
     }
