@@ -15,14 +15,16 @@ pipeline {
 		}          
         }
 
-<!--	stage ('testfile') {
+	stage ('testfile') {
 
             steps {
-                  cd /var/lib/jenkins/workspace/Test1
-		  touch test.txt
+		script{
+                 	 cd /var/lib/jenkins/workspace/Test1
+		 	 touch test.txt
+		}
             }
         }  
--->		
+	
         stage ('Compile Stage') {
 
             steps {
