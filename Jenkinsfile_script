@@ -6,7 +6,7 @@ pipeline {
 			stage ('Checkout') {
         steps {
           script{
-            println "Hi"
+            println "Hi" >> script1.txt
           }			
   		}          
     }
