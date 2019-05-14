@@ -14,15 +14,6 @@ pipeline {
 			git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'	
 		}          
         }
-
-	stage ('Createfile') {
-
-            steps {
-	            script {
-        	        java -version
-	            }
-            }
-        }
 	
         stage ('Compile Stage') {
 
