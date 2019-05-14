@@ -135,34 +135,6 @@
 	                    <version>2.1.2</version>
 	                </plugin>
 
-	<!--		<plugin>
-           			 <groupId>org.jfrog.buildinfo</groupId>
-           			 <artifactId>artifactory-maven-plugin</artifactId>
-          			  <version>2.6.1</version>
-          			  <inherited>false</inherited>
-           			 <executions>
-               				 <execution>
-                   				 <id>build-info</id>
-                   				 <goals>
-                       					 <goal>publish</goal>
-                   				 </goals>
-                   				 <configuration>
-                       					 <deployProperties>
-                           					 <gradle>awesome</gradle>
-                        				         <review.team>qa</review.team>
-                       					 </deployProperties>
-                       					 <publisher>
-                           					 <contextUrl>http://10.118.40.166:8081/artifactory</contextUrl>
-                           						 <username>admin</username>
-                           						 <password>passwod</password>
-                           						 <repoKey>libs-release-local</repoKey>
-                           						 <snapshotRepoKey>libs-snapshot-local</snapshotRepoKey>
-                       					 </publisher>
-                   				 </configuration>
-               				 </execution>
-           			 </executions>
-      		  </plugin>    -->
-
 		<plugin>
 	                <groupId>org.jfrog.buildinfo</groupId>
         	        <artifactId>artifactory-maven-plugin</artifactId>
@@ -235,6 +207,13 @@
                     </archive>
                 </configuration>
             </plugin>
+
+		<plugin>
+       			 <groupId>org.sonarsource.scanner.maven</groupId>
+       			 <artifactId>sonar-maven-plugin</artifactId>
+       			 <version>3.6.0.1398</version>
+     		 </plugin>
+	
 	 </plugins>
 	</build>
     
