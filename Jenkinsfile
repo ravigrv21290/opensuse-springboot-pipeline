@@ -18,7 +18,8 @@ pipeline {
 	stage ('testfile') {
 
             steps {
-                   echo 'This is a test' > sample.txt
+                  cd /var/lib/jenkins/workspace/Test1
+		  touch test.txt
             }
         }  
 		
