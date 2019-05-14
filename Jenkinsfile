@@ -50,7 +50,7 @@ pipeline {
 
 	stage ('Archieve') {
             steps {
-             <!--  archive 'target*//*.jar'  -->
+             
 		archiveArtifacts '/var/lib/jenkins/workspace/Multibranch-Pipeline_master'
             }
         }
