@@ -1,4 +1,4 @@
-pipeline {
+Apipeline {
  agent any 
 
  environment {
@@ -14,6 +14,7 @@ pipeline {
 				git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'	
 			}          
         }
+	    
 		
         stage ('Compile Stage') {
 
@@ -38,19 +39,9 @@ pipeline {
             }
         }
 
-	stage ('test') {
-
-            steps {
-               touch job1.txt
-
-            }
-        }
-
-	stage ('archieve') {
-
+	stage ('Archieve') {
             steps {
                archive 'target*//*.jar'
-
             }
         }
 
