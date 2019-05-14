@@ -15,13 +15,6 @@ Apipeline {
 			}          
         }
 	    
-	stage ('Create_File') {
-
-            steps {
-		touch sample.txt
-		echo "File created"
-            }
-        }
 		
         stage ('Compile Stage') {
 
