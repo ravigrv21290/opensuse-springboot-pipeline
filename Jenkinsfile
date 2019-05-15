@@ -1,4 +1,4 @@
-pipeline {
+'pipeline {
  agent any 
 
  environment {
@@ -41,7 +41,7 @@ pipeline {
 	post {
         always {
             echo 'Copying artifacts'
-	    archive 'target/surefire-reports/*.xml
+	    archive 'target/surefire-reports/*.xml'
          }
         success {
             echo 'I succeeeded!'
