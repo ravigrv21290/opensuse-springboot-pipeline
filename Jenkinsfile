@@ -41,7 +41,11 @@ pipeline {
 	post {
         always {
             echo 'Copying artifacts'
-	    archive '**'
+		
+	    	// It takes all files from source like .java,.class,.jar,xml etc
+	    // archive '**'  
+		
+		archive '**/*.xml'
          }
         success {
             echo 'I succeeeded!'
