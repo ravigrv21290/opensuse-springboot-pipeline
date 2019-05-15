@@ -40,8 +40,8 @@ pipeline {
 
 	stage ('Archieve') {
             steps {
-             
-		archiveArtifacts 'target*//**/*~'
+             junit '**//*target/surefire-reports/TEST-*.xml'
+             archiveArtifacts 'target*//*.jar'
             }
         }
 
