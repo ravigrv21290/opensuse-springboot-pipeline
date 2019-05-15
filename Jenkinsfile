@@ -1,3 +1,4 @@
+
 pipeline {
  agent any 
 
@@ -13,15 +14,6 @@ pipeline {
 			echo 'Pulling...' + env.BRANCH_NAME
 			git 'https://github.com/ravigrv21290/opensuse-springboot-pipeline.git'	
 		}          
-        }
-
-	stage ('Createfile') {
-
-            steps {
-	            script {
-        	        java -version
-	            }
-            }
         }
 	
         stage ('Compile Stage') {
@@ -46,13 +38,20 @@ pipeline {
 
             }
         }
-
-	stage ('Archieve') {
-            steps {
-             
-		archiveArtifacts 'target*//**/*~'
-            }
+    }
+	post {
+        always {
+            echo 'Copying artifacts'
+	    archiveArtifacts 'target/**'
+         }
+        success {
+            echo 'I succeeeded!'
         }
-
+        unstable {
+            echo 'I am unstable :/'
+        }
+        failure {
+            echo 'I failed :('
+        }
     }
 }
