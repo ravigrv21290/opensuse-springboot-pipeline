@@ -41,7 +41,7 @@ pipeline {
 	post {
         always {
             echo 'Copying artifacts'
-	    archive '**/target/surefire-reports/TEST-*.xml' 'target*//*.jar'
+	    archive 'target/surefire-reports/*.xml
          }
         success {
             echo 'I succeeeded!'
