@@ -1,4 +1,3 @@
-
 pipeline {
  agent any 
 
@@ -42,7 +41,15 @@ pipeline {
 	post {
         always {
             echo 'Copying artifacts'
-	    archive '**/target/surefire-reports/TEST-*.xml', 'target*//*.jar'
+		
+	    	// It takes all files from source like .java,.class,.jar,xml etc
+		// archive '**'  
+		
+		// takes all .xml files
+		// archive '**/*.xml'
+		
+		archive 'target*//*.jar'
+		
          }
         success {
             echo 'I succeeeded!'
