@@ -1,3 +1,4 @@
+
 pipeline {
  agent any 
 
@@ -37,13 +38,20 @@ pipeline {
 
             }
         }
-
-	stage ('Archieve') {
-            steps {
-             
-             archiveArtifacts 'target/**'
-            }
+    }
+	post {
+        always {
+            echo 'Copying artifacts'
+	    archiveArtifacts 'target/**'
+         }
+        success {
+            echo 'I succeeeded!'
         }
-
+        unstable {
+            echo 'I am unstable :/'
+        }
+        failure {
+            echo 'I failed :('
+        }
     }
 }
