@@ -43,9 +43,13 @@ pipeline {
             echo 'Copying artifacts'
 		
 	    	// It takes all files from source like .java,.class,.jar,xml etc
-	    // archive '**'  
+		// archive '**'  
 		
-		archive '**/*.xml'
+		// takes all .xml files
+		// archive '**/*.xml'
+		
+		archive 'target*//*.jar'
+		
          }
         success {
             echo 'I succeeeded!'
