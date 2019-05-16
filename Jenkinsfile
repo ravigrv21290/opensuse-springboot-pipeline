@@ -41,6 +41,7 @@ pipeline {
 	post {
         always {
             echo 'Copying artifacts'
+		archive 'target*//*.jar'
 		step([
                         $class: 'CopyArtifact',
                         //filter: '*',
