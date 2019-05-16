@@ -43,7 +43,7 @@ pipeline {
             echo 'Copying artifacts'
 		step([
                         $class: 'CopyArtifact',
-                        filter: '*',
+                        //filter: '*',
                         projectName: 'Multibranch-Pipeline/master',
                         selector: [
                             $class: 'StatusBuildSelector',
