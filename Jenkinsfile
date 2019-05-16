@@ -41,7 +41,7 @@ pipeline {
 	post {
         always {
             echo 'Copying artifacts'
-		archive 'target*//*.jar'
+		archiveArtifacts 'target*//*.jar'
 		
 		
 
