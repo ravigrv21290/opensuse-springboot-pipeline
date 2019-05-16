@@ -48,8 +48,10 @@ pipeline {
 		// takes all .xml files
 		// archive '**/*.xml'
 		
-		archive 'target*//*.jar'
+		//archive 'target*//*.jar'
+		// copy only target files
 		
+		copyArtifacts filter: '/var/lib/jenkins/jobs/Multibranch-Pipeline/*.xml', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/opt/jenkins-config-artifacts/'
          }
         success {
             echo 'I succeeeded!'
