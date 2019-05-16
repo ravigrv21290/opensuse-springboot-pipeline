@@ -57,11 +57,10 @@ pipeline {
 		// copy only target files
 		
 		//copyArtifacts filter: 'jobs/Multibranch-Pipeline/*.xml', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/opt/jenkins-config-artifacts/'
-		Script {
-			cd /var/lib/jenkins/jobs/Multibranch-Pipeline
-			pwd
-			find . -name '*.xml' | cpio -pdm /opt/jenkins-config-artifacts
-		}
+		
+			sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
+			sh 'cp '*.xml' /opt/jenkins-config-artifacts'
+		
          }
         success {
             echo 'I succeeeded!'
