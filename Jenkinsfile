@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
  agent any 
 
  environment {
@@ -56,7 +56,7 @@ pipeline {
 		// copy only target files
 		
 		//copyArtifacts filter: 'jobs/Multibranch-Pipeline/*.xml', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/opt/jenkins-config-artifacts/'
-		copyArtifacts filter: '**', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
+		copyArtifacts filter: '**', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
          }
         success {
             echo 'I succeeeded!'
