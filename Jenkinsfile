@@ -41,7 +41,7 @@ pipeline {
 	post {
         always {
             echo 'Copying artifacts'
-		//archive 'target*//*.jar'
+		archive 'target*//*.jar'
 		
 		
 
@@ -56,9 +56,10 @@ pipeline {
 		// copy only target files
 		
 		//copyArtifacts filter: 'jobs/Multibranch-Pipeline/*.xml', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/opt/jenkins-config-artifacts/'
-		
-			sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
-			sh 'cp '*.xml' /opt/jenkins-config-artifacts'
+			steps {
+				sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
+				sh 'cp '*.xml' /opt/jenkins-config-artifacts'
+	                }	
 		
          }
         success {
