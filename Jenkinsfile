@@ -44,7 +44,7 @@ pipeline {
 		step([
                         $class: 'CopyArtifact',
                         filter: '*',
-                        projectName: 'Multibranch-Pipeline',
+                        projectName: 'Multibranch-Pipeline/master',
                         selector: [
                             $class: 'StatusBuildSelector',
                             stable: false
