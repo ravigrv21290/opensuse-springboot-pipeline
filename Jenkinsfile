@@ -42,14 +42,8 @@ pipeline {
         always {
             echo 'Copying artifacts'
 		archive 'target*//*.jar'
-		step([
-                        $class: 'CopyArtifact',
-                        //filter: '*',
-                        projectName: 'Multibranch-Pipeline/master',
-                        selector: [
-                            $class: 'StatusBuildSelector',
-                            stable: false
-                        ]])
+		
+		
 
 		
 	    	// It takes all files from source like .java,.class,.jar,xml etc
@@ -62,9 +56,9 @@ pipeline {
 		// copy only target files
 		
 		//copyArtifacts filter: 'jobs/Multibranch-Pipeline/*.xml', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/opt/jenkins-config-artifacts/'
-		//sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
-		//sh 'pwd'
-		//sh 'find . -name '*.xml' -exec cp -prv '{}' '/opt/jenkins-config-artifacts' ';''
+		sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
+		sh 'pwd'
+		sh 'find . -name '*.txt' | cpio -pdm /opt/jenkins-config-artifacts'
          }
         success {
             echo 'I succeeeded!'
