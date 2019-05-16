@@ -51,7 +51,7 @@ pipeline {
 		//archive 'target*//*.jar'
 		// copy only target files
 		
-		copyArtifacts filter: '/var/lib/jenkins/jobs/Multibranch-Pipeline/*.xml', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/opt/jenkins-config-artifacts/'
+		copyArtifacts filter: 'var/lib/jenkins/jobs/Multibranch-Pipeline/*.xml', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/opt/jenkins-config-artifacts/'
          }
         success {
             echo 'I succeeeded!'
