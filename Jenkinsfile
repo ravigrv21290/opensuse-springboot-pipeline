@@ -1,4 +1,3 @@
-
 pipeline {
  agent any 
 
@@ -42,7 +41,7 @@ pipeline {
 	post {
         always {
             echo 'Copying artifacts'
-		archive 'target*//*.jar'
+		//archive 'target*//*.jar'
 		
 		
 
