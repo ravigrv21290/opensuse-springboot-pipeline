@@ -44,7 +44,7 @@ pipeline {
                 always {
                     step([
                         $class: 'CopyArtifact',
-                        filter: '*',
+                        filter: '',
                         projectName: 'Copy-artifacts',
                         selector: [
                             $class: 'StatusBuildSelector',
