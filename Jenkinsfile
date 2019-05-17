@@ -32,6 +32,10 @@ pipeline {
         }
 
 	stage ('Copy') {
+		steps {
+                build job: 'Multibranch-Pipeline', parameters: [string(name: 'BRANCH', value: 'master')]
+            	}
+
             post {
                 always {
 			script{
