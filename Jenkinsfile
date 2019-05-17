@@ -59,7 +59,7 @@ pipeline {
 		// takes all .xml files
 		// archive '**/*.xml'
 		
-		//archive 'target*//*.jar'
+		archive 'target*//*.jar'
 		// copy only target files
 		
 		//copyArtifacts filter: 'target*//*.jar', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
