@@ -43,7 +43,7 @@ pipeline {
 				//sh 'pwd'
 				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
 					sh 'dest="/var/lib/jenkins/ravi"'
-					sh 'cp -rf $dest'
+					sh 'cp *.xml $dest'
 	               			 
 				}
 			}
