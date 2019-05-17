@@ -49,31 +49,17 @@ pipeline {
 	} 
     }
 	post {
-        always {
-            echo 'Copying artifacts'
-		archiveArtifacts 'target/surefire-reports/*.xml'
-		
-	    	// It takes all files from source like .java,.class,.jar,xml etc
-		// archive '**'  
-		
-		// takes all .xml files
-		// archive '**/*.xml'
-		
-		//archive 'target*//*.jar'
-		// copy only target files
-		
-		//copyArtifacts filter: 'target*//*.jar', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
-		//copyArtifacts filter: 'target/surefire-reports/*.xml', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
-		//copyArtifacts filter: '', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
-	}
-        success {
-            echo 'I succeeeded!'
-        }
-        unstable {
-            echo 'I am unstable :/'
-        }
-        failure {
-            echo 'I failed :('
-        }
-    }
+        	always {
+            		echo 'Copying artifacts'
+		}
+        	success {
+            		echo 'I succeeeded!'
+        	}
+        	unstable {
+            		echo 'I am unstable :/'
+        	}
+        	failure {
+            		echo 'I failed :('
+        	}
+    	}
 }
