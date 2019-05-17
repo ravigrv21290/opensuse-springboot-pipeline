@@ -43,9 +43,11 @@ pipeline {
             post {
                 always {
 			step{
-				sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
-				sh 'pwd'
-			}
+				//sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
+				//sh 'pwd'
+				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
+                   			 sh 'pwd'
+				}
                 }
             }
         }
