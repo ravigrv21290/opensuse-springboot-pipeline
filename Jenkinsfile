@@ -31,19 +31,17 @@ pipeline {
             }
         }
 
-	stage ('Build') {
+	stage ('Copy') {
             steps {
                 build job: 'Copy-artifacts', parameters: [string(name: 'BRANCH', value: 'master')]
             }
             post {
                 always {
-			steps {
 				//sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
 				//sh 'pwd'
 				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
                    			 sh 'pwd'
 				}
-               		 }
            	 }
        	    }
 	} 
