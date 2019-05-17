@@ -34,13 +34,29 @@ pipeline {
 
             steps {
 		sh 'mvn package'
-
             }
         }
+	stage ('Build') {
+            steps {
+                build job: 'Copy-artifacts', parameters: [string(name: 'BRANCH', value: 'master')]
+            }
+            post {
+                always {
+			step{
+				//sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
+				//sh 'pwd'
+				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
+                   			 sh 'pwd'
+				}
+                }
+            }
+        }
+
     }
 	post {
         always {
             echo 'Copying artifacts'
+		//archiveArtifacts 'target/surefire-reports/*.xml'
 		
 	    	// It takes all files from source like .java,.class,.jar,xml etc
 		// archive '**'  
@@ -48,9 +64,13 @@ pipeline {
 		// takes all .xml files
 		// archive '**/*.xml'
 		
-		archive 'target*//*.jar'
+		//archive 'target*//*.jar'
+		// copy only target files
 		
-         }
+		//copyArtifacts filter: 'target*//*.jar', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
+		//copyArtifacts filter: 'target/surefire-reports/*.xml', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
+		//copyArtifacts filter: '', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
+	}
         success {
             echo 'I succeeeded!'
         }
