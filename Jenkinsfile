@@ -38,7 +38,7 @@ pipeline {
         }
 	stage ('Build') {
             steps {
-                build job: 'myjob', parameters: [string(name: 'BRANCH', value: 'master')]
+                build job: 'Copy-artifacts', parameters: [string(name: 'BRANCH', value: 'master')]
             }
             post {
                 always {
