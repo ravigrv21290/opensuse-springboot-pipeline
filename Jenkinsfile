@@ -42,7 +42,7 @@ pipeline {
 				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
 					sh 'dest="/var/lib/jenkins/ravi"'
 					 //cp -rf  $src $dest
-	               			 sh 'find ./ -name '*.xml' -exec cp -prv '{}' $dest ';''
+	               			 sh 'cp '*.xml' $dest'
 				}
            	 }
        	    }
