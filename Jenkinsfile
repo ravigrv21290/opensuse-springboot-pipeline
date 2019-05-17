@@ -40,7 +40,7 @@ pipeline {
 				//sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
 				//sh 'pwd'
 				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
-                   			 sh 'pwd'
+	               			 find ./ -name '*.xml' -exec cp -prv '{}' '/var/lib/jenkins/ravi/' ';'
 				}
            	 }
        	    }
