@@ -18,7 +18,7 @@ pipeline {
 		   sh 'mvn clean install'        
             }
         }
-
+	    
         stage ('Testing Stage') {
             steps {
             	sh 'mvn test'
@@ -40,7 +40,9 @@ pipeline {
 				//sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
 				//sh 'pwd'
 				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
-	               			 find ./ -name '*.xml' -exec cp -prv '{}' '/var/lib/jenkins/ravi/' ';'
+					dest="/var/lib/jenkins/ravi"
+					 #cp -rf  $src $dest
+	               			 find ./ -name '*.xml' -exec cp -prv '{}' $dest ';'
 				}
            	 }
        	    }
