@@ -41,8 +41,8 @@
 	post {
         always {
             echo 'Copying artifacts'
-		archiveArtifacts 'target*//*.jar'
-		junit 'build/reports/**/*.xml'
+		archiveArtifacts 'target/surefire-reports/*.xml'
+		
 		
 
 		
