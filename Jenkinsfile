@@ -34,9 +34,26 @@ pipeline {
 
             steps {
 		sh 'mvn package'
-
             }
         }
+	stage ('Build') {
+            steps {
+                build job: 'myjob', parameters: [string(name: 'BRANCH', value: 'master')]
+            }
+            post {
+                always {
+                    step([
+                        $class: 'CopyArtifact',
+                        filter: '*',
+                        projectName: 'Copy-artifacts',
+                        selector: [
+                            $class: 'StatusBuildSelector',
+                            stable: false
+                        ]])
+                }
+            }
+        }
+
     }
 	post {
         always {
@@ -54,8 +71,8 @@ pipeline {
 		
 		//copyArtifacts filter: 'target*//*.jar', fingerprintArtifacts: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'
 		//copyArtifacts filter: 'target/surefire-reports/*.xml', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
-		copyArtifacts filter: '', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
-         }
+		//copyArtifacts filter: '', fingerprintArtifacts: true, flatten: true, projectName: 'Multibranch-Pipeline/master', target: '/var/lib/jenkins/ravi'	
+	}
         success {
             echo 'I succeeeded!'
         }
