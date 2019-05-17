@@ -40,9 +40,9 @@ ipeline {
 				//sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
 				//sh 'pwd'
 				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
-					dest="/var/lib/jenkins/ravi"
+					sh 'dest="/var/lib/jenkins/ravi"'
 					 //cp -rf  $src $dest
-	               			 find ./ -name '*.xml' -exec cp -prv '{}' $dest ';'
+	               			 sh 'find ./ -name '*.xml' -exec cp -prv '{}' $dest ';''
 				}
            	 }
        	    }
