@@ -37,7 +37,7 @@ pipeline {
             }
             post {
                 always {
-			step{
+			steps {
 				//sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
 				//sh 'pwd'
 				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
