@@ -44,7 +44,7 @@ pipeline {
                 always {
                     step([
                         $class: 'CopyArtifact',
-                        filter: '',
+                        filter: 'target/surefire-reports/*.xml',
                         projectName: 'Copy-artifacts',
                         selector: [
                             $class: 'StatusBuildSelector',
