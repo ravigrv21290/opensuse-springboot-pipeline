@@ -41,7 +41,7 @@
 	post {
         always {
             echo 'Copying artifacts'
-		archiveArtifacts 'target/surefire-reports/*.xml'
+		archiveArtifacts 'surefire-reports/*.xml'
 		
 		
 
