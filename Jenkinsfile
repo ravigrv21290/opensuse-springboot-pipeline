@@ -48,18 +48,4 @@ pipeline {
        	    }
 	} 
     }
-	post {
-        	always {
-            		echo 'Copying artifacts'
-		}
-        	success {
-            		echo 'I succeeeded!'
-        	}
-        	unstable {
-            		echo 'I am unstable :/'
-        	}
-        	failure {
-            		echo 'I failed :('
-        	}
-    	}
 }
