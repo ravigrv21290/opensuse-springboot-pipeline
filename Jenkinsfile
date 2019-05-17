@@ -32,18 +32,15 @@ pipeline {
         }
 
 	stage ('Copy') {
-            steps {
-                build job: 'Copy-artifacts', parameters: [string(name: 'BRANCH', value: 'master')]
-            }
             post {
                 always {
 			script{
 				//sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
 				//sh 'pwd'
 				dir('/var/lib/jenkins/jobs/Multibranch-Pipeline') {
-					sh 'dest="/var/lib/jenkins/ravi"'
+					dest="/var/lib/jenkins/ravi"
 					 //cp -rf  $src $dest
-	               			 sh 'cp '*.xml' $dest'
+	               			 cp '*.xml' $dest
 				}
 			}
            	 }
