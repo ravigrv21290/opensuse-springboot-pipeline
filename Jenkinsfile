@@ -42,14 +42,10 @@ pipeline {
             }
             post {
                 always {
-                    step([
-                        $class: 'CopyArtifact',
-                        filter: 'target/surefire-reports/*.xml',
-                        projectName: 'Copy-artifacts',
-                        selector: [
-                            $class: 'StatusBuildSelector',
-                            stable: false
-                        ]])
+			step{
+				sh 'cd /var/lib/jenkins/jobs/Multibranch-Pipeline'
+				sh 'pwd'
+			}
                 }
             }
         }
