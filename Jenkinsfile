@@ -30,6 +30,11 @@ pipeline {
 		sh 'mvn package'
             }
         }
+	    stage ('build stats') {
+            steps {
+		buildPlugin()
+            }
+        }
     }
 	post {
         	always {
