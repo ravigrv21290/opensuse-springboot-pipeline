@@ -30,11 +30,6 @@ pipeline {
 		sh 'mvn package'
             }
         }
-	    stage ('build stats') {
-            steps {
-		buildPlugin(platforms: ['linux'], jdkVersions: [7, 8])
-            }
-        }
     }
 	post {
         	always {
