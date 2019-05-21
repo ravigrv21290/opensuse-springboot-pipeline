@@ -32,7 +32,7 @@ pipeline {
         }
 	    stage ('build stats') {
             steps {
-		buildPlugin(/*...*/, configurations: buildPlugin.recommendedConfigurations())
+		buildPlugin(configurations: buildPlugin.recommendedConfigurations())
             }
         }
     }
