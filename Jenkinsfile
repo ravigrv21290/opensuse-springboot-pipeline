@@ -33,7 +33,7 @@ pipeline {
 	    
 	stage ('Sonar Analysis Stage') {
             steps {
-		sh 'mvn --version'
+		sh 'mvn sonar:sonar -Dsonar.host.url=http://10.118.40.159:9000/sonar'
             }
         }
     }
