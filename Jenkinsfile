@@ -30,6 +30,12 @@ pipeline {
 		sh 'mvn package'
             }
         }
+	    
+	stage ('Sonar Analysis Stage') {
+            steps {
+		sh 'mvn --version'
+            }
+        }
     }
 	post {
         	always {
