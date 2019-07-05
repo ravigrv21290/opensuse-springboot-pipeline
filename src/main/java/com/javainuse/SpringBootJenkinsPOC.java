@@ -1,12 +1,12 @@
 package com.javainuse;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.opensusespringbootpipeline;
 
 @SpringBootApplication
-public class SpringBootJenkinsPOC {
+public class opensusespringbootpipeline {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootJenkinsPOC.class, args);
+		SpringApplication.run(opensusespringbootpipeline.class, args);
 	}
 }
