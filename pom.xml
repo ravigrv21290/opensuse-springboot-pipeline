@@ -142,7 +142,7 @@
 	 </plugins>
 	</build>
     
-     <repositories>
+     <!--<repositories>
        	 <repository>
             <snapshots>
                 <enabled>false</enabled>
@@ -162,6 +162,6 @@
             <name>bintray-plugins</name>
             <url>http://jcenter.bintray.com</url>
         </pluginRepository>
-    </pluginRepositories>
+    </pluginRepositories>     -->
 
 </project>
