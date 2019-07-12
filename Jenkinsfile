@@ -36,6 +36,12 @@ pipeline {
 		sh 'mvn sonar:sonar -Dsonar.host.url=http://ds-ina750qs6c:9000/sonar'
             }
         }
+	    
+	stage ('Deploy Stage') {
+            steps {
+		sh 'mvn deploy'
+            }
+        }    
     }
 	post {
         	always {
