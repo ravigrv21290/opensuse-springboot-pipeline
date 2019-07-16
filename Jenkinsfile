@@ -1,3 +1,6 @@
+def server
+def rtMaven
+def buildInfo
 pipeline {
  agent any
 	
@@ -40,17 +43,25 @@ pipeline {
 	stage ('Artifactory Configuration Stage') {
         	steps {
 			script { 
-				def server = Artifactory.server 'Artifactory'
-				def uploadSpec = """{
-					"files": [{
-					"target": "/root/Music/opensuse-springboot-pipeline/target"
-					}]
-				}"""
-				server.upload(uploadSpec) 
+				server = Artifactory.server 'Artifactory'
+				rtMaven = Artifactory.newMavenBuild()
+        			rtMaven.tool = maven // Tool name from Jenkins configuration
+				rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server
+				rtMaven.resolver releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: server
+				rtMaven.deployer.deployArtifacts = false // Disable artifacts deployment during Maven run
+				buildInfo = Artifactory.newBuildInfo()
+
 			 }
         	}
 	}
-	    
+	 stage ('Deploy') {
+       		 rtMaven.deployer.deployArtifacts buildInfo
+    	}
+
+    	stage ('Publish build info') {
+       		 server.publishBuildInfo buildInfo
+    	}
+   
 	/*stage ('Deploy Stage') {
             steps {
 		sh 'mvn deploy'
