@@ -37,7 +37,7 @@ pipeline {
             }
         }
 	    
-	/*stage ('Artifactory Configuration Stage') {
+	stage ('Artifactory Configuration Stage') {
            steps {
               script { 
                  def server = Artifactory.server 'Artifactory'
@@ -50,13 +50,13 @@ pipeline {
                  server.upload(uploadSpec) 
                }
             }
-        } */
+        }
 	    
-	stage ('Deploy Stage') {
+	/*stage ('Deploy Stage') {
             steps {
 		sh 'mvn deploy'
             }
-        }
+        }*/
     }
 	post {
         	always {
