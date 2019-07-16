@@ -38,17 +38,18 @@ pipeline {
         }
 	    
 	stage ('Artifactory Configuration Stage') {
-           steps {
-              script { 
-              	def server = Artifactory.server 'Artifactory'
-                def uploadSpec = """{
-                    "files": [{
-                       "target": "/root/Music/opensuse-springboot-pipeline/target"
-                    }]
-                 }"""
-                 server.upload(uploadSpec) 
-            }
-        }
+        	steps {
+			script { 
+				def server = Artifactory.server 'Artifactory'
+				def uploadSpec = """{
+					"files": [{
+					"target": "/root/Music/opensuse-springboot-pipeline/target"
+					}]
+				}"""
+				server.upload(uploadSpec) 
+			 }
+        	}
+	}
 	    
 	/*stage ('Deploy Stage') {
             steps {
