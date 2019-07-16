@@ -1,5 +1,8 @@
 pipeline {
- agent any 
+ agent any
+	def server
+	def buildInfo
+	def rtMaven
 
  environment {
     EMAIL_RECIPIENTS = 'rvgrv212@gmail.com'
@@ -37,11 +40,24 @@ pipeline {
             }
         }
 	    
+	stage ('Artifactory Configuration Stage') {
+            steps {
+		// Obtain an Artifactory server instance, defined in Jenkins --> Manage:
+        	server = Artifactory.server SERVER_ID
+	        rtMaven = Artifactory.newMavenBuild()
+        	rtMaven.tool = maven // Tool name from Jenkins configuration
+        	rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server
+        	rtMaven.resolver releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: server
+        	rtMaven.deployer.deployArtifacts = false // Disable artifacts deployment during Maven run	
+       		buildInfo = Artifactory.newBuildInfo()
+            }
+        }
+	    
 	stage ('Deploy Stage') {
             steps {
 		sh 'mvn deploy'
             }
-        }    
+        }
     }
 	post {
         	always {
