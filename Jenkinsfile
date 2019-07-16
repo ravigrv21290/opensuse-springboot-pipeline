@@ -44,7 +44,7 @@ pipeline {
 	stage ('Artifactory Configuration Stage') {
            
 		// Obtain an Artifactory server instance, defined in Jenkins --> Manage:
-        	server = Artifactory.server 'Artifactory'
+        	server = Artifactory.server Artifactory
 	        rtMaven = Artifactory.newMavenBuild()
         	rtMaven.tool = maven // Tool name from Jenkins configuration
         	rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server
