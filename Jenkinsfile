@@ -42,7 +42,7 @@ pipeline {
         }
 	    
 	stage ('Artifactory Configuration Stage') {
-            steps {
+           
 		// Obtain an Artifactory server instance, defined in Jenkins --> Manage:
         	server = Artifactory.server SERVER_ID
 	        rtMaven = Artifactory.newMavenBuild()
@@ -51,7 +51,7 @@ pipeline {
         	rtMaven.resolver releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: server
         	rtMaven.deployer.deployArtifacts = false // Disable artifacts deployment during Maven run	
        		buildInfo = Artifactory.newBuildInfo()
-            }
+           
         }
 	    
 	stage ('Deploy Stage') {
