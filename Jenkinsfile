@@ -1,7 +1,3 @@
-def server
-def buildInfo
-def rtMaven
-
 pipeline {
  agent any
 	
@@ -42,16 +38,18 @@ pipeline {
         }
 	    
 	stage ('Artifactory Configuration Stage') {
-           
-		// Obtain an Artifactory server instance, defined in Jenkins --> Manage:
-        	server = Artifactory.server Artifactory
-	        rtMaven = Artifactory.newMavenBuild()
-        	rtMaven.tool = maven // Tool name from Jenkins configuration
-        	rtMaven.deployer releaseRepo: 'libs-release-local', snapshotRepo: 'libs-snapshot-local', server: server
-        	rtMaven.resolver releaseRepo: 'libs-release', snapshotRepo: 'libs-snapshot', server: server
-        	rtMaven.deployer.deployArtifacts = false // Disable artifacts deployment during Maven run	
-       		buildInfo = Artifactory.newBuildInfo()
-           
+           steps {
+              script { 
+                 def server = Artifactory.server 'Artifactory'
+                 def uploadSpec = """{
+                    "files": [{
+                       "pattern": "path/",
+                       "target": "path/"
+                    }]
+                 }"""
+                 server.upload(uploadSpec) 
+               }
+            }
         }
 	    
 	stage ('Deploy Stage') {
