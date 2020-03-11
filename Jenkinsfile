@@ -54,13 +54,13 @@ pipeline {
 			 }
         	}
 	}
-	 stage ('Deploy') {
+	 /*stage ('Deploy') {
        		 rtMaven.deployer.deployArtifacts buildInfo
     	}
 
     	stage ('Publish build info') {
        		 server.publishBuildInfo buildInfo
-    	}
+    	}*/
    
 	/*stage ('Deploy Stage') {
             steps {
